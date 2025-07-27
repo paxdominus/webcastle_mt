@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 200,
+                    height: MediaQuery.of(context).size.height * 0.2,
                     child: GridView.count(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -229,15 +229,19 @@ class _HomePageState extends State<HomePage> {
                       children:
                           item['brands']
                               ?.map<Widget>(
-                                (e) => Column(
-                                  children: [
-                                    CachedNetworkImage(
+                                (e) => Card(
+                                  color: Colors.white,
+                                  child: Container(
+                                    margin: EdgeInsets.all(8),
+                                    child: CachedNetworkImage(
                                       imageUrl: e['image'] ?? '',
-                                      height: 200,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                          0.2,
                                       errorWidget: (context, url, error) =>
                                           Icon(Icons.error),
                                     ),
-                                  ],
+                                  ),
                                 ),
                               )
                               .toList() ??
@@ -260,7 +264,6 @@ class _HomePageState extends State<HomePage> {
                           ?.map<Widget>(
                             (e) => CachedNetworkImage(
                               imageUrl: e['image'] ?? '',
-                              height: 200,
                               errorWidget: (context, url, error) =>
                                   Icon(Icons.error),
                             ),
@@ -270,7 +273,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             case 'banner':
-              return Card(
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: ClipRRect(
                   borderRadius: BorderRadiusGeometry.all(Radius.circular(50)),
                   child: CachedNetworkImage(
@@ -280,8 +284,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             case 'future-order':
-              return Card(
-                color: Colors.white,
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: ClipRRect(
                   borderRadius: BorderRadiusGeometry.all(Radius.circular(50)),
                   child: CachedNetworkImage(
@@ -314,15 +318,10 @@ class _HomePageState extends State<HomePage> {
                         ?.map<Widget>(
                           (e) => Card(
                             color: Colors.white,
-                            child: ClipRRect(
-                              borderRadius: BorderRadiusGeometry.all(
-                                Radius.circular(50),
-                              ),
-                              child: CachedNetworkImage(
-                                imageUrl: e['image'] ?? '',
-                                errorWidget: (context, url, error) =>
-                                    Icon(Icons.error),
-                              ),
+                            child: CachedNetworkImage(
+                              imageUrl: e['image'] ?? '',
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.error),
                             ),
                           ),
                         )
