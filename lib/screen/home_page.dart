@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 3,
+                    flex: 5,
                     child: TextField(
                       decoration: InputDecoration(
                         hint: Text(
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Expanded(
-                    flex: 2,
+                    flex: 4,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: SizedBox(
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                                 "Scan Here",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 12,
+                                  fontSize: 11,
                                 ),
                               ),
                               Icon(Icons.read_more, color: Colors.white),
@@ -365,7 +365,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(16),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    childAspectRatio: 0.6,
+                    childAspectRatio: 0.5,
                     children:
                         item['products']
                             ?.map<Widget>(
@@ -444,7 +444,7 @@ class _HomePageState extends State<HomePage> {
                                               padding: const EdgeInsets.all(
                                                 3.0,
                                               ),
-                                              child: Row(
+                                              child: Wrap(
                                                 children: [
                                                   Text(
                                                     e['currency'] ?? '',
